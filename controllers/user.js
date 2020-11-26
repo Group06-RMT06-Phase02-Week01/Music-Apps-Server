@@ -2,21 +2,23 @@ const {User} = require('../models')
 const helpbcrypt = require('../helpers/bcrypt')
 const bcrypt = require('bcryptjs')
 const {verifyToken,generateToken} = require('../helpers/jwt')
-const jwt = require('jsonwebtoken')
+
 
 class UserController {
   static register (req,res){
+    res.send(req.body)
     const newUser = {
       email: req.body.email,
       password: req.body.password
     }
+    console.log(newUser)
     User.create(newUser)
       .then (data=>{
         res.status(201).json({id: data.id,email: data.email})
       })
       .catch (err=>{
-        console.log(err)
-        next(err)
+  
+        res.status(500).json(err.message)
       })
 
   }
@@ -34,13 +36,11 @@ class UserController {
         else{
             res.status(401).json({message: `Invalid email/password`})
           }
-        
       })
       .catch (err=>{
-        console.log(err)
-        next(err)
+        
+        res.status(500).json(err.message)
       })
-
   }
 }
 
