@@ -1,7 +1,7 @@
 const {User} = require('../models')
-const helpbcrypt = require('../helpers/bcrypt')
-const bcrypt = require('bcryptjs')
-const {verifyToken,generateToken} = require('../helpers/jwt')
+//const helpbcrypt = require('../helpers/bcrypt')
+//const bcrypt = require('bcryptjs')
+//const {verifyToken,generateToken} = require('../helpers/jwt')
 const jwt = require('jsonwebtoken')
 
 class UserController {
