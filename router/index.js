@@ -2,7 +2,7 @@ const express = require('express')
 const authentication = require('../middlewares/authentication')
 const otorisesion = require('../middlewares/autorisesion')
 const UserController =  require('../controllers/user')
-const quoteRouter = require('./garden-router')
+const quoteRouter = require('./quote-router')
 
 const router = express.Router()
 
