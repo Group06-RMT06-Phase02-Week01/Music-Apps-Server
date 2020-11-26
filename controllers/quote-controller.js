@@ -1,9 +1,8 @@
 const axios = require('axios');
-const { response } = require('express');
 
 class QuoteController {
 
-    static async getRandom(req, res, next){
+    static async getRandomQuote(req, res, next){
         
         try {
             let response = await axios({
@@ -19,6 +18,21 @@ class QuoteController {
             next(err)
         }
         
+    }
+
+    static async getRandomInsult(req, res, next){
+        try {
+            let response = await axios({
+                url: 'https://evilinsult.com/generate_insult.php?lang=en&type=json',
+                method : 'GET',
+                responseType: 'json'
+            })
+            //console.log(response)
+            res.status(200).json(response.data)
+
+        } catch (err){
+            next(err)
+        }
     }
 
 }
