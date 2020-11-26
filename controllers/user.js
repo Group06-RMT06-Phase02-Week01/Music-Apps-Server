@@ -6,10 +6,12 @@ const {verifyToken,generateToken} = require('../helpers/jwt')
 
 class UserController {
   static register (req,res){
+    res.send(req.body)
     const newUser = {
       email: req.body.email,
       password: req.body.password
     }
+    console.log(newUser)
     User.create(newUser)
       .then (data=>{
         res.status(201).json({id: data.id,email: data.email})
