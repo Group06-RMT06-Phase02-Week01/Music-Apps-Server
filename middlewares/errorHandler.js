@@ -10,11 +10,8 @@ module.exports = (err, req, res, next) => {
     res.status(400).json({message: arrErrors})
     }
     else {
-      if(!err.status){
-        //ini untuk handle key error dari Quote Garden API
-        err['status'] = err.statusCode
-      }
-      res.status(err.status).json({message : [err.message]})
+      
+      res.status(500).json({message : [err.message]})
     }
   }
   

@@ -21,12 +21,5 @@ class QuoteController {
         
     }
 
-    //static async getAllGenres(req, res){
-    //    try {
-
-    //    } catch (err){
-    //        next(err)
-    //    }
-    //}
 }
 module.exports = QuoteController
