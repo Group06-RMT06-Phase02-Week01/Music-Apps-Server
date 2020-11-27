@@ -19,7 +19,7 @@ router.post('/login', UserController.login)
 router.use('/quotes', quoteRouter) //untuk percobaan ditaro disini dulu
 router.use('/music-match', musicMatchRouter)
 
-//router.use(authentication)
+router.use(authentication)
 // router.use('/:id',otorisesion)
 
 
