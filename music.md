@@ -17,10 +17,7 @@ Register Page.
   email,Password
 
 - **Success Response:**
-{
-    "email": "aaaa@gmail.com",
-    "password": "123"
-}
+
 
   redirect `/login`
 
@@ -56,8 +53,8 @@ None
 
 - **Error Response:**
 
-- **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{"message": "Login First"}`
+- **Code:** 400 UNAUTHORIZED <br />
+    **Content:** `{"message": "Invalid account"}`
 
 - **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ error : "INTERNAL SERVER ERROR" }`
