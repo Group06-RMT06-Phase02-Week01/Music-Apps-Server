@@ -15,11 +15,12 @@ router.post('/', UserController.register)
 router.post('/login', UserController.login)
 router.post('/googleLogin', UserController.googleLogin)
 
-router.use('/quotes', quoteRouter) //untuk percobaan ditaro disini dulu
+router.use('/quotes', quoteRouter) 
+
+router.use(authentication)
 router.use('/popular', popularRouter)
 router.use('/music-match', musicMatchRouter)
 
-router.use(authentication)
 
 
 
