@@ -145,7 +145,29 @@ Main Page Show Song
   None
 
 - **Success Response Example**
-    ``
+    `{
+      "id": "cd293e05-402a-4684-9b29-a027dfd654b8",
+      "score": 100,
+      "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+      "count": 1,
+      "title": "Control Mind",
+      "status": "Official",
+      "packaging": "None",
+      "text-representation": {
+        "language": "eng",
+        "script": "Latn"
+      },
+      "artist-credit": [
+        {
+          "name": "Dire Forze",
+          "artist": {
+            "id": "784bf6a6-29e9-4573-9f22-924121852567",
+            "name": "Dire Forze",
+            "sort-name": "Dire Forze"
+          }
+        }
+      ],
+      `
   
 - **Error Response:**
  - **Code:** 401 UNAUTHORIZED <br />
