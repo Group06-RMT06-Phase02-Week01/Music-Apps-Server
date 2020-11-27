@@ -1,4 +1,3 @@
-
 //const { verifyToken } = require("../helpers/jwt")
 const {User} = require('../models')
 

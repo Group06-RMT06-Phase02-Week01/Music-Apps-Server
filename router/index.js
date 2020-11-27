@@ -3,6 +3,7 @@ const authentication = require('../middlewares/authentication')
 const otorisesion = require('../middlewares/autorisesion')
 const UserController =  require('../controllers/user')
 const quoteRouter = require('./quote-router')
+const musicMatchRouter = require('./music-match-router')
 
 const router = express.Router()
 
@@ -16,7 +17,9 @@ router.post('/', UserController.register)
 router.post('/login', UserController.login)
 
 router.use('/quotes', quoteRouter) //untuk percobaan ditaro disini dulu
-router.use(authentication)
+router.use('/music-match', musicMatchRouter)
+
+//router.use(authentication)
 // router.use('/:id',otorisesion)
 
 

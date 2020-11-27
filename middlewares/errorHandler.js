@@ -10,8 +10,8 @@ module.exports = (err, req, res, next) => {
     res.status(400).json({message: arrErrors})
     }
     else {
-      
-      res.status(500).json({message : [err.message]})
+      //console.log('masuk sini')
+      res.status(404).json({message : [err.message]})
     }
   }
   
