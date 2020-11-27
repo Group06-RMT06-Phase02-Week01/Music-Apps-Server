@@ -2,6 +2,10 @@ const {User} = require('../models')
 const helpbcrypt = require('../helpers/bcrypt')
 const {generateToken} = require('../helpers/jwt')
 
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+
 class UserController {
   static register (req,res){
     res.send(req.body)
@@ -40,6 +44,34 @@ class UserController {
         res.status(500).json(err.message)
       })
   }
+
+  static googleLogin (req, res, next) {
+    client.verifyIdToken({
+        idToken: req.body.googleToken,
+        audience: process.env.GOOGLE_CLIENT_ID
+    })
+    .then(ticket => {
+        const payload = ticket.getPayload()
+        return User.findOne({ where: { email: payload.email }})
+    })
+    .then(user => {
+        if (user) { 
+            return user
+        } else {
+            return User.create({ email: payload.email, password: 'random' })
+        }
+    })
+    .then(user => {
+        const access_token = generateToken({ email:user.email, id: user.id })
+        res.status(200).json({access_token})
+    })
+    .catch(error => {
+        console.log(error)
+        next(error)
+    })
+}
+
+
 }
 
 module.exports = UserController
