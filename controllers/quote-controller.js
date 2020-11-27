@@ -12,7 +12,7 @@ class QuoteController {
             })
 
             //console.log(response)
-            res.status(200).json(response.data.quote)
+            res.status(200).json(response.data.quote.quoteText)
         
         } catch (err){
             next(err)
@@ -28,7 +28,7 @@ class QuoteController {
                 responseType: 'json'
             })
             //console.log(response)
-            res.status(200).json(response.data)
+            res.status(200).json(response.data.insult)
 
         } catch (err){
             next(err)

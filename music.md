@@ -96,7 +96,7 @@ None
 
 Main Page Show Random Insult
 
-  `http://localhost:3000//quotes/random-insult`
+  `http://localhost:3000/quotes/random-insult`
 
 - **Method:**
 
@@ -127,7 +127,7 @@ Main Page Show Random Insult
 
 - **URL**
 Main Page Show Song
-  `"http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"`
+  `"http://localhost:3000/music-match/search/:artist/:length"`
 
 - **Method:**
 

@@ -6,12 +6,6 @@ const quoteRouter = require('./quote-router')
 
 const router = express.Router()
 
-
-//router.use(authentication)
-// router.use('/:id',otorisesion)
-router.get('/register', UserController.register)
-router.get('/login', UserController.login)
-
 router.post('/', UserController.register)
 router.post('/login', UserController.login)
 
