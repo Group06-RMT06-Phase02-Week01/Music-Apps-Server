@@ -2,6 +2,7 @@ const express = require('express')
 const authentication = require('../middlewares/authentication')
 const UserController =  require('../controllers/user')
 const quoteRouter = require('./quote-router')
+const popularRouter = require('./search-popular-router')
 const musicMatchRouter = require('./music-match-router')
 
 const router = express.Router()
@@ -12,11 +13,14 @@ router.get('/login', UserController.login)
 
 router.post('/', UserController.register)
 router.post('/login', UserController.login)
+router.post('/googleLogin', UserController.googleLogin)
 
 router.use('/quotes', quoteRouter) 
+
+router.use(authentication)
+router.use('/popular', popularRouter)
 router.use('/music-match', musicMatchRouter)
 
-router.use(authentication)//untuk percobaan ditaro disini dulu
 
 
 
