@@ -55,7 +55,7 @@ class UserController {
         return User.findOne({ where: { email: payload.email }})
     })
     .then(user => {
-        if (user) { 
+      if (user) { 
             return user
         } else {
             return User.create({ email: payload.email, password: 'random' })
