@@ -48,7 +48,7 @@ class UserController {
   static googleLogin (req, res, next) {
     client.verifyIdToken({
         idToken: req.body.googleToken,
-        audience: '281930259133-6prd3arhd19sonc7e2pivi7t8ifdjld8.apps.googleusercontent.com'
+        audience: process.env.GOOGLE_CLIENT_ID
     })
     .then(ticket => {
         const payload = ticket.getPayload()
