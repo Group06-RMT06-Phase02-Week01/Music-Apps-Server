@@ -51,17 +51,21 @@ class UserController {
         audience: process.env.GOOGLE_CLIENT_ID
     })
     .then(ticket => {
+        console.log('ticket')
         const payload = ticket.getPayload()
         return User.findOne({ where: { email: payload.email }})
     })
     .then(user => {
-        if (user) { 
+      if (user) { 
+        console.log('user1')
             return user
         } else {
+          console.log('user2')
             return User.create({ email: payload.email, password: 'random' })
         }
     })
     .then(user => {
+      console.log('user3')
         const access_token = generateToken({ email:user.email, id: user.id })
         res.status(200).json({access_token})
     })
